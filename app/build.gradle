@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.application'  // Let Gradle use the version already resolved (8.3.1)
+}
+
+android {
+    namespace = "com.example.movieapp"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.example.movieapp"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation libs.appcompat.v170
+    implementation libs.material.v1120
+    implementation libs.activity.v190
+    implementation libs.constraintlayout
+    implementation libs.navigation.fragment.ktx
+
+    testImplementation libs.junit
+    androidTestImplementation libs.junit.v121
+    androidTestImplementation libs.espresso.core.v361
+}
